@@ -29,23 +29,23 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## angular全局属性共享
 1.复制app文件夹下的services文件夹以及内容
-2.传值
-    2.1  引入共享文件
+## .传值
+##   引入共享文件
         import { AlleventService } from '../../../services/allevent.service';
-    2.2  在需要传值的ts文件中，依赖注入AlleventService
+## 2.2  在需要传值的ts文件中，依赖注入AlleventService
         constructor(private ev:AlleventService) { }
-    2.3  emit 传值
+## 2.3  emit 传值
         this.ev.eventbus.emit({
             type: "唯一的键值",
             value: "hello world"
         })
-3.接受值
-    3.1 重复2.1 2.2
-    3.2 接受值
+## 接受值
+## 重复2.1 2.2
+##  接受值
         this.subObj = this.ev.eventbus.subscribe((msg)=>{
             console.log(msg.type);
         });
-    3.3 注销值
+## 注销值
         ngOnDestroy(){
             if(this.subObj)
             this.subObj.unsubscribe();
