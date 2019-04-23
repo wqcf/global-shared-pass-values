@@ -41,11 +41,11 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
     })
 ## 3 接受值
 ## 3.1 重复2.1 2.2
-## 3.2 接受值
+## 3.2 订阅
     this.subObj = this.ev.eventbus.subscribe((msg)=>{
         console.log(msg.type);
     });
-## 3.3 注销值
+## 3.3 取消订阅
     ngOnDestroy(){
         if(this.subObj)
         this.subObj.unsubscribe();
